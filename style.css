@@ -1,197 +1,366 @@
-/* style.css */
-
-body { 
-  font-family: Arial, sans-serif; 
-  margin: 0; 
-  padding: 0; 
-  background-color: #f4f4f4; 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dadbd3; /* WhatsApp background */
 }
 
-.top-bar { 
-  background-color: #00798c; 
-  color: white;
-  font-size: 16px; 
-  font-weight: bold;
-  height: 30px;
-}
-.top-bar p{
-  margin-top: 5px;
-}
-
-.navbar { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 10px 20px; 
-  background-color: white; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  margin: 10px;
-}
-.logo a{
-  text-decoration: none;
-  color: #00798c;
-  font-weight: bold; 
-  font-size: 20px;
-}
-
-.search-box { 
-  flex-grow: 1; 
-  max-width: 400px; 
-  padding: 8px; 
-  margin: 10px; 
-  border: 1px solid #ccc; 
-  border-radius: 4px; 
+/* Sidebar Styling */
+.sidebar {
+    flex: 0.35;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
 }
 
-.lang-cart { 
-  display: flex; 
-  align-items: center; 
-  gap: 15px; 
-  font-size: 18px; 
-  margin-bottom: 10px;
+.sidebar .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #f0f2f5;
 }
 
-.product-list { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-  gap: 20px; 
-  padding: 20px;
+.sidebar .header h3 {
+    margin: 0;
+    color: #1c1e21;
 }
 
-.product { 
-  background-color: white; 
-  border: 1px solid #ddd; 
-  border-radius: 8px; 
-  padding: 15px; 
-  text-align: center; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+.sidebar .header .menu-icons span {
+    font-size: 20px;
+    margin-left: 15px;
+    color: #54656f;
+    cursor: pointer;
 }
 
-.product img { 
-  width: 100%; 
-  height: auto; 
-  border-radius: 4px; 
+.sidebar .search-bar {
+    padding: 10px 15px;
+    background-color: #f0f2f5;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.product h4 { 
-  margin: 10px 0 5px; 
-  color: #00798c; 
+.sidebar .search-bar input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 14px;
+    outline: none;
 }
 
-.product p { 
-  font-size: 14px; 
-  color: #555; 
-  height: 40px; 
-  overflow: hidden; 
+.sidebar .chat-list {
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
-button { 
-  padding: 8px 12px; 
-  margin: 5px; 
-  border: none; 
-  border-radius: 4px; 
-  cursor: pointer; 
+.sidebar .chat-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-button.buy { 
-  background-color: #00798c; 
-  color: white; 
+.sidebar .chat-item:hover,
+.sidebar .chat-item.active {
+    background-color: #f5f6f6;
 }
 
-.pagination { 
-  text-align: center; 
-  margin: 20px 0; 
-}
-.pagination .unable{
-  background-color: grey;
-}
-.pagination button { 
-  background-color: #00798c; 
-  color: white; 
-  margin: 0 10px; 
-  padding: 5px 10px; 
-  border-radius: 4px;
-}
-.pagination button a{
-  text-decoration: none;
-  color: white;
-}
-.pagination button:hover{
-  background-color: grey;
-}
-.pagination button a:hover{
-  text-decoration: underline;
+.sidebar .chat-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
 }
 
-.footer-cols { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: space-around; 
-  background-color: #f1f1f1; 
-  padding: 20px;
+.sidebar .chat-item .chat-info {
+    flex-grow: 1;
 }
 
-.footer-cols div { 
-  flex: 1 1 250px; 
-  margin: 10px;
+.sidebar .chat-item .chat-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #1c1e21;
 }
 
-.footer-cols h4 { 
-  margin-bottom: 10px; 
-  color: black;
+.sidebar .chat-item .chat-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #667781;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.footer-cols ul { 
-  list-style: none; 
-  padding: 0;
-}
-.footer-cols p { 
-  margin-bottom: -10px;
-  
-}
-.footer-cols ul li { 
-  margin-bottom: 8px;
+.sidebar .chat-item .time {
+    font-size: 12px;
+    color: #667781;
 }
 
-.footer-cols a{
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  
+/* Main Chat Styling */
+.main-chat {
+    flex: 0.65;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b7f329d4791ee96677.png'); /* WhatsApp chat background */
+    background-repeat: repeat;
+    background-size: auto;
 }
 
-.footer-cols a:hover{
-  color: #00798c;
+.main-chat .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.footer-bottom { 
-  text-align: center; 
-  font-size: 14px; 
-  color: #666; 
-  padding: 10px; 
-  background-color: #eaeaea; 
+.main-chat .chat-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
 }
 
-@media (max-width: 600px) {
-  .logo {
-    margin: 10px 0;
-}
-  .search-box {
-    width: 100%; 
-    margin: 10px 0;
-  }
-
-  .lang-cart {
-    margin-left: 75%;
-    margin-top: -142px;
-  }
-
-  .product p { 
-    height: auto;
-  } 
+.main-chat .chat-header .user-info {
+    flex-grow: 1;
 }
 
+.main-chat .chat-header .user-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #1c1e21;
+}
+
+.main-chat .chat-header .user-info p {
+    margin: 0;
+    font-size: 13px;
+    color: #667781;
+}
+
+.main-chat .chat-header .header-icons span {
+    font-size: 20px;
+    margin-left: 20px;
+    color: #54656f;
+    cursor: pointer;
+}
+
+.main-chat .chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-chat .message {
+    max-width: 60%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.4;
+    position: relative;
+}
+
+.main-chat .message p {
+    margin: 0;
+    padding-bottom: 5px; /* Space for time */
+}
+
+.main-chat .message span {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.main-chat .message.received {
+    background-color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+.main-chat .message.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+
+.main-chat .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e0e0e0;
+}
+
+.main-chat .chat-input input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 15px;
+    outline: none;
+    margin: 0 10px;
+}
+
+.main-chat .chat-input span {
+    font-size: 22px;
+    color: #54656f;
+    cursor: pointer;
+}
+
+.main-chat .chat-input button {
+    background-color: #00a884;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.main-chat .chat-input button:hover {
+    background-color: #008f72;
+}
+
+
+/* আপনার বিদ্যমান CSS কোড... */
+
+/* --------------------------------------------------------
+   রেসপনসিভ ডিজাইনের জন্য মিডিয়া কোয়েরি (Media Queries) 
+   --------------------------------------------------------
+*/
+
+/* ছোট ডিভাইস এবং মোবাইল ফোনের জন্য (যেমন 768px এর নিচে)
+   সাইডবারটি লুকিয়ে যাবে এবং শুধুমাত্র মূল চ্যাট উইন্ডো দেখা যাবে।
+*/
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 100vh; /* পুরো স্ক্রিন দখল করবে */
+        border-radius: 0; /* কোণাগুলো গোলাকার থাকবে না */
+        box-shadow: none;
+    }
+
+    .sidebar {
+        display: none; /* ছোট স্ক্রিনে সাইডবার লুকানো থাকবে */
+        flex: 0; /* ফ্লেক্সের স্থান দখল করবে না */
+    }
+
+    /* ভবিষ্যতে যদি আপনি সাইডবার টগল করার ব্যবস্থা করতে চান, 
+       তাহলে আপনি JavaScript ব্যবহার করে এই `display: none` পরিবর্তন করতে পারেন।
+    */
+
+    .main-chat {
+        flex: 1; /* পুরো জায়গা দখল করবে */
+    }
+
+    /* মেসেজগুলির প্রস্থ ছোট স্ক্রিনের জন্য সামঞ্জস্য করা */
+    .main-chat .message {
+        max-width: 80%; /* মোবাইল স্ক্রিনে মেসেজগুলি বেশি চওড়া হতে পারে */
+    }
+
+    .main-chat .chat-input input {
+        margin: 0 5px; /* ইনপুট ফিল্ডের মার্জিন কমানো */
+        padding: 8px 12px;
+    }
+
+    .main-chat .chat-input button {
+        width: 35px; /* বাটনের আকার কমানো */
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .main-chat .chat-input span {
+        font-size: 20px;
+    }
+
+    .main-chat .chat-header img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .main-chat .chat-header .header-icons span {
+        margin-left: 10px;
+        font-size: 18px;
+    }
+}
+
+/* মাঝারি ডিভাইস এবং ট্যাবলেটের জন্য (যেমন 768px থেকে 1024px)
+   সাইডবার এবং মূল চ্যাট উইন্ডো উভয়ই ছোট আকারে দেখা যাবে।
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 95%;
+        height: 95vh;
+    }
+
+    .sidebar {
+        flex: 0.4; /* সাইডবারের প্রস্থ সামান্য বাড়ানো */
+    }
+
+    .main-chat {
+        flex: 0.6; /* মূল চ্যাট উইন্ডোর প্রস্থ সামান্য কমানো */
+    }
+
+    .sidebar .chat-item img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .main-chat .chat-header img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* বড় স্ক্রিন এবং ডেস্কটপের জন্য (1025px এর উপরে)
+   আগের ডিফল্ট স্টাইলগুলো কার্যকর থাকবে।
+*/
+@media (min-width: 1025px) {
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        height: 90vh;
+    }
+    .sidebar {
+        flex: 0.35;
+    }
+    .main-chat {
+        flex: 0.65;
+    }
+}
