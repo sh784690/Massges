@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার হোয়াটসঅ্যাপ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <h3>চ্যাটস</h3>
+                <div class="menu-icons">
+                    <span>&#9993;</span>
+                    <span>&#9776;</span>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="অনুসন্ধান করুন বা নতুন চ্যাট শুরু করুন">
+            </div>
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <img src="https://via.placeholder.com/50" alt="প্রোফাইল ছবি">
+                    <div class="chat-info">
+                        <h4>বন্ধুর নাম ১</h4>
+                        <p>শেষ মেসেজ...</p>
+                    </div>
+                    <span class="time">১০:৩০ AM</span>
+                </div>
+                <div class="chat-item">
+                    <img src="https://via.placeholder.com/50" alt="প্রোফাইল ছবি">
+                    <div class="chat-info">
+                        <h4>বন্ধুর নাম ২</h4>
+                        <p>আচ্ছা ঠিক আছে।</p>
+                    </div>
+                    <span class="time">গতকাল</span>
+                </div>
+                </div>
+        </div>
+        <div class="main-chat">
+            <div class="chat-header">
+                <img src="https://via.placeholder.com/50" alt="প্রোফাইল ছবি">
+                <div class="user-info">
+                    <h4>বন্ধুর নাম ১</h4>
+                    <p>অনলাইন</p>
+                </div>
+                <div class="header-icons">
+                    <span>&#128269;</span>
+                    <span>&#128222;</span>
+                    <span>&#9776;</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message received">
+                    <p>কেমন আছো?</p>
+                    <span>১০:৩৫ AM</span>
+                </div>
+                <div class="message sent">
+                    <p>আমি ভালো আছি, তুমি?</p>
+                    <span>১০:৩৬ AM</span>
+                </div>
+                </div>
+            <div class="chat-input">
+                <span class="emoji-icon">&#128512;</span>
+                <input type="text" id="message-input" placeholder="একটি মেসেজ টাইপ করুন">
+                <span class="attach-icon">&#128206;</span>
+                <button id="send-button">&#9658;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
